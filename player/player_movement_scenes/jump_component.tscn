@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://br7ac31nlf36n"]
+
+[ext_resource type="Script" path="res://player/player_movement_scripts/jump_component.gd" id="1_qoam2"]
+
+[node name="JumpComponent" type="Node2D"]
+script = ExtResource("1_qoam2")
+
+[node name="Display" type="Label" parent="."]
+offset_left = -56.0
+offset_top = -48.0
+offset_right = 73.0
+offset_bottom = -25.0
+scale = Vector2(0.873561, 0.873561)
+text = "Jump charge: 0%"

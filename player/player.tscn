@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://toyqu3yxyepe"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_id3a3"]
+[ext_resource type="Texture2D" uid="uid://cwkuqhx6nhq3d" path="res://assets/cat_placeholder.png" id="2_ndgdt"]
+[ext_resource type="PackedScene" uid="uid://fxwuad70guci" path="res://player/player_movement_scenes/gravity_component.tscn" id="3_7f0h4"]
+[ext_resource type="PackedScene" uid="uid://btnn1neqfh7nc" path="res://player/player_movement_scenes/walk_component.tscn" id="4_qnonf"]
+[ext_resource type="PackedScene" uid="uid://br7ac31nlf36n" path="res://player/player_movement_scenes/jump_component.tscn" id="5_adlt4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vgfm"]
+size = Vector2(30, 19.3125)
+
+[node name="Player" type="CharacterBody2D"]
+safe_margin = 0.1
+script = ExtResource("1_id3a3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 94.0
+offset_bottom = 87.0
+text = "Equipped:"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, -9.53674e-07)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_ndgdt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 3.65625)
+shape = SubResource("RectangleShape2D_0vgfm")
+
+[node name="MovementComponents" type="Node2D" parent="."]
+
+[node name="GravityComponent" parent="MovementComponents" instance=ExtResource("3_7f0h4")]
+
+[node name="WalkComponent" parent="MovementComponents" instance=ExtResource("4_qnonf")]
+
+[node name="JumpComponent" parent="MovementComponents" instance=ExtResource("5_adlt4")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true

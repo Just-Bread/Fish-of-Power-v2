@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi7vu64xdyi4j"]
+
+[ext_resource type="PackedScene" uid="uid://toyqu3yxyepe" path="res://player/player.tscn" id="1_4sl7d"]
+[ext_resource type="Script" path="res://main.gd" id="1_12iyr"]
+[ext_resource type="PackedScene" uid="uid://2b8vi5v2kods" path="res://test_level.tscn" id="3_1fvyk"]
+[ext_resource type="PackedScene" uid="uid://gyhl71ybwpnu" path="res://button.tscn" id="4_odapj"]
+[ext_resource type="AudioStream" uid="uid://den278v26c04t" path="res://music/World 1 v3.mp3" id="5_geb5b"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_12iyr")
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Player" parent="Level" instance=ExtResource("1_4sl7d")]
+position = Vector2(176, 176)
+
+[node name="Level2" parent="." instance=ExtResource("3_1fvyk")]
+
+[node name="Control" parent="." instance=ExtResource("4_odapj")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_geb5b")
+volume_db = -2.0
+autoplay = true

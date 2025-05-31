@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx576mlar8ch8"]
+
+[ext_resource type="Script" path="res://fps_counter.gd" id="1_cbjwf"]
+[ext_resource type="PackedScene" uid="uid://gyhl71ybwpnu" path="res://button.tscn" id="2_5ertc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_erecg"]
+size = Vector2(276, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6yenj"]
+
+[node name="TestRoom" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(568, 453)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_erecg")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(578, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+scale = Vector2(58.8, 1)
+shape = SubResource("RectangleShape2D_6yenj")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(576, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+scale = Vector2(58.8, 1)
+shape = SubResource("RectangleShape2D_6yenj")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(-8, 328)
+rotation = 1.56939
+scale = Vector2(0.5609, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+scale = Vector2(58.8, 1)
+shape = SubResource("RectangleShape2D_6yenj")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(1160, 328)
+rotation = 1.56939
+scale = Vector2(0.5609, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+scale = Vector2(58.8, 1)
+shape = SubResource("RectangleShape2D_6yenj")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(323, 575)
+scale = Vector2(0.520001, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+shape = SubResource("RectangleShape2D_erecg")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 24.0
+offset_right = 47.0
+offset_bottom = 47.0
+text = "fps:"
+script = ExtResource("1_cbjwf")
+
+[node name="Control" parent="." instance=ExtResource("2_5ertc")]
+offset_left = 984.0
+offset_top = 48.0
+offset_right = 984.0
+offset_bottom = 48.0
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(576, 320)
+gizmo_extents = 109.1

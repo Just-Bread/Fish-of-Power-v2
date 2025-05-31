@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnr6eko5lg4mk"]
+
+[ext_resource type="Script" path="res://player/player_movement_scripts/boots_component.gd" id="1_bhf0d"]
+
+[node name="BootsComponent" type="Node2D"]
+script = ExtResource("1_bhf0d")

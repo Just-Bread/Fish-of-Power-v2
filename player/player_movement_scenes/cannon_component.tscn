@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2bnfn218lqap"]
+
+[ext_resource type="Script" path="res://player/player_movement_scripts/cannon_component.gd" id="1_rpxb7"]
+
+[node name="CannonComponent" type="Node2D"]
+script = ExtResource("1_rpxb7")
+
+[node name="Display" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -32.0
+offset_right = 43.0
+offset_bottom = -9.0
+text = "Fuel: 100%"
