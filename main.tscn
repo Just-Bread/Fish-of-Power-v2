@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://2b8vi5v2kods" path="res://test_level.tscn" id="3_1fvyk"]
 [ext_resource type="PackedScene" uid="uid://gyhl71ybwpnu" path="res://button.tscn" id="4_odapj"]
 [ext_resource type="AudioStream" uid="uid://den278v26c04t" path="res://assets/music/World 1 v3.mp3" id="5_geb5b"]
-[ext_resource type="Shader" uid="uid://il4y5881ltsm" path="res://assets/shaders/crt.gdshader" id="6_7mycd"]
+[ext_resource type="Shader" uid="uid://dw0vy365v4swl" path="res://shaders/crt.gdshader" id="6_7mycd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
 shader = ExtResource("6_7mycd")
