@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctote75yxxfha"]
+
+[ext_resource type="Script" uid="uid://cf1aoymcvbsc5" path="res://player/player_movement_components/fishing_rod_component/fishing_rod_component.gd" id="1_abgl4"]
+[ext_resource type="Script" uid="uid://cetwbk0pqmbbr" path="res://player/player_movement_components/fishing_rod_component/hook.gd" id="2_1hc7p"]
+[ext_resource type="Texture2D" uid="uid://dh788s3fl0lys" path="res://assets/sprites/ball.png" id="3_5apgm"]
+[ext_resource type="PackedScene" uid="uid://bkcu2na2okxrb" path="res://rope/rope.tscn" id="4_5lgn6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m317t"]
+radius = 8.0
+
+[node name="FishingRodComponent" type="Node2D"]
+script = ExtResource("1_abgl4")
+metadata/_custom_type_script = "uid://ymjbkeda4tmh"
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Hook" type="RigidBody2D" parent="Node"]
+collision_layer = 0
+collision_mask = 0
+lock_rotation = true
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_1hc7p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Hook"]
+shape = SubResource("CircleShape2D_m317t")
+
+[node name="Label" type="Label" parent="Node/Hook"]
+offset_left = -24.0
+offset_top = -72.0
+offset_right = 24.0
+offset_bottom = -49.0
+
+[node name="ReloadTimer" type="Timer" parent="Node/Hook"]
+one_shot = true
+
+[node name="AirTimeTimer" type="Timer" parent="Node/Hook"]
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Node/Hook"]
+texture = ExtResource("3_5apgm")
+
+[node name="Rope" parent="." instance=ExtResource("4_5lgn6")]
+number_of_nodes = 15
+iterations = 8
+
+[connection signal="is_pulled" from="Node/Hook" to="Rope" method="_on_hook_is_pulled"]
+[connection signal="timeout" from="Node/Hook/ReloadTimer" to="Node/Hook" method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="Node/Hook/AirTimeTimer" to="Node/Hook" method="_on_air_time_timer_timeout"]

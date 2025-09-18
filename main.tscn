@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://bi7vu64xdyi4j"]
+
+[ext_resource type="PackedScene" uid="uid://toyqu3yxyepe" path="res://player/player.tscn" id="1_4sl7d"]
+[ext_resource type="Script" uid="uid://cur3bj2inqp3h" path="res://main.gd" id="1_12iyr"]
+[ext_resource type="PackedScene" uid="uid://2b8vi5v2kods" path="res://test_level.tscn" id="3_1fvyk"]
+[ext_resource type="PackedScene" uid="uid://gyhl71ybwpnu" path="res://button.tscn" id="4_odapj"]
+[ext_resource type="AudioStream" uid="uid://den278v26c04t" path="res://assets/music/World 1 v3.mp3" id="5_geb5b"]
+[ext_resource type="Shader" uid="uid://il4y5881ltsm" path="res://assets/shaders/crt.gdshader" id="6_7mycd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
+shader = ExtResource("6_7mycd")
+shader_parameter/overlay = true
+shader_parameter/resolution = Vector2(960, 720)
+shader_parameter/brightness = 1.6
+shader_parameter/scanlines_opacity = 0.299
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/aberration = 0.02
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/pixelate = true
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.23
+
+[node name="Main" type="Node"]
+script = ExtResource("1_12iyr")
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Player" parent="Level" instance=ExtResource("1_4sl7d")]
+position = Vector2(176, 176)
+
+[node name="Level2" parent="." instance=ExtResource("3_1fvyk")]
+
+[node name="Control" parent="." instance=ExtResource("4_odapj")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_geb5b")
+volume_db = -2.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_272bh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
